@@ -29,7 +29,7 @@ class CategoryElementView extends StatelessWidget {
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                     fontSize: 20),
-              )
+              ),
             ],
           ),
         ),

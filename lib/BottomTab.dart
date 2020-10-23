@@ -129,7 +129,7 @@ class _BottomTabState extends State<BottomTab> {
               height: 15,
             ),
             InkWell(
-              onTap: () {},
+              onTap: () => Navigator.of(context).pushNamed('/FilterScreen'),
               child: ListTile(
                 contentPadding: EdgeInsets.symmetric(horizontal: 16),
                 leading: Icon(
