@@ -4,7 +4,12 @@ import 'package:meal_app/model/data.dart';
 
 import '../model/Category.dart';
 
-class MealsCategoryScreen extends StatelessWidget {
+class MealsCategoryScreen extends StatefulWidget {
+  @override
+  _MealsCategoryScreenState createState() => _MealsCategoryScreenState();
+}
+
+class _MealsCategoryScreenState extends State<MealsCategoryScreen> {
   @override
   Widget build(BuildContext context) {
     RouteSettings routeSettings = ModalRoute.of(context).settings;

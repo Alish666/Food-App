@@ -6,6 +6,7 @@ class MealsList extends StatelessWidget {
   final List<Meal> list;
 
   MealsList({this.list});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -15,7 +16,9 @@ class MealsList extends StatelessWidget {
         scrollDirection: Axis.vertical,
         padding: EdgeInsets.only(bottom: 15),
         itemCount: list.length,
-        itemBuilder: (context, index) => ElementMeal(meal: list[index]),
+        itemBuilder: (context, index) => ElementMeal(
+          meal: list[index],
+        ),
       ),
     );
   }

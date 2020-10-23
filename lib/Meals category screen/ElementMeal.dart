@@ -1,28 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:meal_app/model/meal.dart';
 
-class ElementMeal extends StatelessWidget {
+class ElementMeal extends StatefulWidget {
   final Meal meal;
 
   ElementMeal({this.meal});
 
+  @override
+  _ElementMealState createState() => _ElementMealState();
+}
+
+class _ElementMealState extends State<ElementMeal> {
   String get complexityText {
-    if (meal.complexity == Complexity.Simple) {
+    if (widget.meal.complexity == Complexity.Simple) {
       return "Simple";
-    } else if (meal.complexity == Complexity.Challenging) {
+    } else if (widget.meal.complexity == Complexity.Challenging) {
       return "Challenging";
-    } else if (meal.complexity == Complexity.Hard) {
+    } else if (widget.meal.complexity == Complexity.Hard) {
       return "Hard";
     }
   }
 
   String get affordabilityText {
-    if (meal.affordability == Affordability.Affordable) {
+    if (widget.meal.affordability == Affordability.Affordable) {
       return "Affordable";
-    } else if (meal.affordability == Affordability.Luxurious) {
+    } else if (widget.meal.affordability == Affordability.Luxurious) {
       return "Luxurious";
     }
-    if (meal.affordability == Affordability.Pricey) {
+    if (widget.meal.affordability == Affordability.Pricey) {
       return "Pricey";
     }
   }
@@ -48,7 +53,7 @@ class ElementMeal extends StatelessWidget {
                       topLeft: Radius.circular(15),
                       topRight: Radius.circular(15)),
                   child: Image.network(
-                    meal.imageUrl,
+                    widget.meal.imageUrl,
                     fit: BoxFit.fitWidth,
                     width: double.infinity,
                     height: 250,
@@ -61,7 +66,7 @@ class ElementMeal extends StatelessWidget {
                     padding: EdgeInsets.only(left: 10, top: 5, bottom: 5),
                     width: 300,
                     child: Text(
-                      meal.title,
+                      widget.meal.title,
                       style: TextStyle(
                           color: Color.fromRGBO(255, 255, 255, 0.7),
                           fontSize: 25),
@@ -83,7 +88,7 @@ class ElementMeal extends StatelessWidget {
                     SizedBox(
                       width: 5,
                     ),
-                    Text(meal.duration.toString() + " min")
+                    Text(widget.meal.duration.toString() + " min")
                   ]),
                   Row(children: <Widget>[
                     Icon(Icons.local_post_office),
@@ -113,6 +118,6 @@ class ElementMeal extends StatelessWidget {
   }
 
   void _goToDetailsMealScreen(context) {
-    Navigator.pushNamed(context, '/DetailsMealScreen', arguments: meal);
+    Navigator.pushNamed(context, '/DetailsMealScreen', arguments: widget.meal);
   }
 }
